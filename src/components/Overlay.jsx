@@ -1,6 +1,8 @@
 import { Scroll, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useState } from "react";
+import Typewriter from "typewriter-effect";
+import { motion } from "framer-motion";
 
 const Section = (props) => {
   return (
@@ -39,10 +41,24 @@ const Overlay = () => {
     <Scroll html>
       <div class="w-screen">
         <Section opacity={opacityFirstSection}>
-          <h1 className="font-semibold font-serif text-2xl">
+          {/* <h1 className="font-semibold font-serif text-2xl">
             Hello, I'm Chloe Yeo
-          </h1>
-          <p className="text-gray-500">Welcome to my portfolio!</p>
+          </h1> */}
+          <h1 className="text-md italic font-bold">Hello!</h1>
+          {/* <p className="text-gray-500">Welcome to my portfolio!</p> */}
+          <motion.h1 animate={{ fontSize: "30px", fontWeight: "bold" }}>
+            I'm Chloe yeo
+          </motion.h1>
+          <Typewriter
+            options={{
+              strings: ["Welcome to My Portfolio!", "Feel free to explore!"],
+              autoStart: true,
+              loop: true,
+              deleteSpeed: 50,
+              wrapperClassName: "text-xl font-bold text-gray-700",
+              // cursorClassName,
+            }}
+          />
           <p className="mt-3">Myself:</p>
           <ul className="leading-9">
             <li>🧑‍💻 A Full Stack Software Engineer</li>
@@ -69,9 +85,10 @@ const Overlay = () => {
           </p>
           <ul className="leading-9">
             <li>NodeJS</li>
-            <li>NestJS</li>
+            <li>NextJS</li>
             <li>MongoDB</li>
             <li>MySQL</li>
+            <li>AWS</li>
           </ul>
           <p className="animate-bounce  mt-6">↓</p>
         </Section>
