@@ -1,11 +1,22 @@
 import { Canvas } from "@react-three/fiber";
-import "./css/App.css";
-import Experience from "./components/Experience";
+import { Suspense } from "react";
+import "./css/style.css";
+import { OrbitControls, Environment } from "@react-three/drei";
+import Earth from "./components/Earth";
+import Cat from "./components/Cat";
 
 function App() {
   return (
-    <Canvas camera={{ fov: 64, position: [2.3, 1.5, 2.3] }}>
-      <Experience />
+    // camera={{ position: [0, 0, 10] }}
+    <Canvas>
+      <ambientLight />
+      <directionalLight />
+      <Environment preset="forest" />
+      <OrbitControls enableZoom={true} />
+      <Suspense fallback={null}>
+        {/* <Earth /> */}
+        <Cat />
+      </Suspense>
     </Canvas>
   );
 }
