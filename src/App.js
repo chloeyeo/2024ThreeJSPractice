@@ -2,7 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import "./css/style.css";
 import { OrbitControls, Environment } from "@react-three/drei";
-// import Earth from "./components/Earth";
+import Earth from "./components/Earth";
 import Cat from "./components/Cat";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
       <Environment preset="forest" />
       <OrbitControls enableZoom={true} />
       <Suspense fallback={null}>
-        {/* <Earth /> */}
+        <Earth />
         <Cat />
       </Suspense>
     </Canvas>

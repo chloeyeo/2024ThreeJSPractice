@@ -13,11 +13,11 @@ import { useGLTF } from "@react-three/drei";
 export default function Earth(props) {
   const { nodes, materials } = useGLTF("/earth.gltf");
   return (
-    <group {...props} dispose={null}>
+    <group {...props} position={[0, -2, 0]} dispose={null}>
       <mesh
         geometry={nodes.Object_4.geometry}
         material={materials["Scene_-_Root"]}
-        scale={1.128}
+        scale={2}
       />
     </group>
   );
