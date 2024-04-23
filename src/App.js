@@ -2,13 +2,13 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import "./css/style.css";
 import { OrbitControls, Environment } from "@react-three/drei";
-import Earth from "./components/Earth";
+// import Earth from "./components/Earth";
 import Cat from "./components/Cat";
 
 function App() {
   return (
     // camera={{ position: [0, 0, 10] }}
-    <Canvas>
+    <Canvas camera={{ position: [-120, 120, 400] }}>
       <ambientLight />
       <directionalLight />
       <Environment preset="forest" />

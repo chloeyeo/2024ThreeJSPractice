@@ -15,7 +15,7 @@ export default function Cat(props) {
   const { nodes, materials, animations } = useGLTF("/cat.gltf");
   const { actions } = useAnimations(animations, group);
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={group} scale={[0.4, 0.4, 0.4]} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group
