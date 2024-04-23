@@ -7,8 +7,8 @@ import Cat from "./components/Cat";
 
 function App() {
   return (
-    // camera={{ position: [0, 0, 10] }}
-    <Canvas camera={{ position: [-120, 120, 400] }}>
+    // camera={{ position: [-120, 120, 400] }}
+    <Canvas camera={{ position: [-4, 4, 10] }}>
       <ambientLight />
       <directionalLight />
       <Environment preset="forest" />

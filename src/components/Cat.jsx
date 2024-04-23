@@ -7,15 +7,20 @@ Source: https://sketchfab.com/3d-models/toon-cat-free-b2bd1ee7858444bda366110a2d
 Title: Toon Cat FREE
 */
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 
 export default function Cat(props) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/cat.gltf");
   const { actions } = useAnimations(animations, group);
+  console.log("actions:", actions);
+  useEffect(() => {
+    const action = actions["Scene"];
+    action.play();
+  }, [actions]);
   return (
-    <group ref={group} scale={[0.4, 0.4, 0.4]} {...props} dispose={null}>
+    <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group
@@ -24,7 +29,12 @@ export default function Cat(props) {
           >
             <group name="Object_2">
               <group name="RootNode">
-                <group name="Rig" rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+                <group
+                  name="Rig"
+                  scale={1}
+                  rotation={[-Math.PI / 2, 0, 0]}
+                  // scale={100}
+                >
                   <group name="Object_5">
                     <primitive object={nodes._rootJoint} />
                     <group
@@ -40,7 +50,12 @@ export default function Cat(props) {
                     />
                   </group>
                 </group>
-                <group name="Cat" rotation={[-Math.PI / 2, 0, 0]} scale={100} />
+                <group
+                  name="Cat"
+                  // scale={1}
+                  rotation={[-Math.PI / 2, 0, 0]}
+                  scale={100}
+                />
               </group>
             </group>
           </group>
